@@ -1,0 +1,39 @@
+#include <iostream>
+#include <stack>
+using namespace std;
+
+class inputPrompt {
+private:
+    int flavorChoice = 1; // Default flavorChoice is 1 **This does not mean that it automatically adds a flavor to the order**
+    stack<int> order;
+public:
+    inputPrompt() {
+            while (flavorChoice != 4 && flavorChoice > 0 && flavorChoice < 4) {
+            cout << "1 - Chocolate Blueberry Swirl" << endl;
+            cout << "2 - Rainbow Sherbert Deluxe" << endl;
+            cout << "3 - Peaches and Cream" << endl;
+            cout << "4 - End Order" << endl;
+
+            cout << "Enter flavor to add to order: " << endl;
+            cin >> flavorChoice;
+            if (flavorChoice > 0 && flavorChoice < 4) {
+                order.push(flavorChoice);
+            }
+        }
+    }
+
+    void printOrder() {
+        while (!order.empty()) {
+            cout << order.top() << " ";
+            order.pop();
+        }
+    }
+};
+
+int main() {
+    inputPrompt jordan;
+    jordan.printOrder();
+
+
+
+}
